@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import musicserver.DBAccess;
+import java.sql.ResultSet;
 
 /**
  *
@@ -119,6 +121,7 @@ public class frmDangNhap extends javax.swing.JInternalFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String username=txtUserName.getText();
         String password=new String(txtPassword.getPassword());
+        int per = 0;
         String str="select * from taikhoan where username='"+username+"' and password='"+password+"'";
         try{
             String data="";
@@ -128,8 +131,14 @@ public class frmDangNhap extends javax.swing.JInternalFrame {
             out.println("dangnhap@"+str);
             data=in.nextLine().trim();
             if(data.equals("OK")){
+                DBAccess acc=new DBAccess();
+                ResultSet rs;
+                rs=acc.Query(str);
+                if(rs.next())
+                    per=rs.getInt("per");
                 this.dispose();
-                cha.themFrmHienThi(socket, username, password);
+                System.out.println(per);
+                cha.themFrmHienThi(socket, username, password, per);
             }else{
                 JOptionPane.showMessageDialog(null, "Đăng nhập thất bại! Hãy kiểm tra lại username và password", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }

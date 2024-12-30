@@ -140,8 +140,8 @@ public class frmMenuClient extends javax.swing.JFrame {
         });
     }
     
-    public void themFrmHienThi(Socket s, String username, String password){
-        frmHienThi obj=new frmHienThi(s, username, password);
+    public void themFrmHienThi(Socket s, String username, String password, int per){
+        frmHienThi obj=new frmHienThi(s, username, password, per);
         obj.setVisible(true);
         dspane.add(obj);
         this.validate();

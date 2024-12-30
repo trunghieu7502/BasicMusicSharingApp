@@ -32,18 +32,22 @@ public class frmHienThi extends javax.swing.JInternalFrame {
     private String username="";
     private String password="";
     private String path="";
+    private int per=0;
     /**
      * Creates new form frmHienThi
      */
     public frmHienThi() {
         initComponents();
     }
-    public frmHienThi(Socket s, String username, String password){
+    public frmHienThi(Socket s, String username, String password, int per){
         initComponents();
         this.socket=s;
         this.setTitle("Xin chào "+username);
         this.username=username;
         this.password=password;
+        this.per=per;
+        if(per==0)
+            btnUpload.setVisible(false);
         loadlist();
     }
 

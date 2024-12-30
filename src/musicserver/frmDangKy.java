@@ -5,7 +5,6 @@
 package musicserver;
 
 import java.io.File;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,10 +35,6 @@ public class frmDangKy extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        cboread = new javax.swing.JRadioButton();
-        cbowrite = new javax.swing.JRadioButton();
-        cbofull = new javax.swing.JRadioButton();
         btnSignUp = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -53,17 +48,6 @@ public class frmDangKy extends javax.swing.JInternalFrame {
         jLabel1.setText("Mật khẩu");
 
         jLabel3.setText("Xác nhận mật khẩu");
-
-        jLabel4.setText("Quyền");
-
-        buttonGroup1.add(cboread);
-        cboread.setText("Read");
-
-        buttonGroup1.add(cbowrite);
-        cbowrite.setText("Write");
-
-        buttonGroup1.add(cbofull);
-        cbofull.setText("Full");
 
         btnSignUp.setText("Đăng ký");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -111,15 +95,7 @@ public class frmDangKy extends javax.swing.JInternalFrame {
                             .addGap(61, 61, 61)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtUserName)
-                                .addComponent(txtPassword)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cbofull, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cbowrite, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
-                                .addComponent(cboread, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(txtPassword)))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -137,20 +113,12 @@ public class frmDangKy extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtConfirmPW, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cboread)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbowrite)
-                .addGap(8, 8, 8)
-                .addComponent(cbofull)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSignUp)
                     .addComponent(btnReset)
                     .addComponent(btnExit))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,12 +137,6 @@ public class frmDangKy extends javax.swing.JInternalFrame {
         String password=new String(txtPassword.getPassword());
         String xnPassword=new String(txtConfirmPW.getPassword());
         int per=0;
-        if(this.cboread.isSelected())
-            per=0;
-        if(this.cbowrite.isSelected())
-            per=1;
-        if(this.cbofull.isSelected())
-            per=2;
         if(!password.equals(xnPassword)){
             JOptionPane.showMessageDialog(null, " loi mat khau ");
         }else{
@@ -208,14 +170,10 @@ public class frmDangKy extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSignUp;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton cbofull;
-    private javax.swing.JRadioButton cboread;
-    private javax.swing.JRadioButton cbowrite;
     private javax.swing.JFileChooser fchServer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField txtConfirmPW;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
