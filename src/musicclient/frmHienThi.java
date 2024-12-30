@@ -66,6 +66,9 @@ public class frmHienThi extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         btnPlayServer = new javax.swing.JButton();
 
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("FTP Client");
 
         jLabel1.setText("Thư mục bên Client");
@@ -284,10 +287,16 @@ public class frmHienThi extends javax.swing.JInternalFrame {
             bos.close();
             File dir=new File(path);
             File dsFile[]=dir.listFiles();
+            String[] supportedExtensions = {".mp3", ".wav", ".ogg", ".aac", ".flac", ".m4a"};
             DefaultListModel dm=new DefaultListModel();
-            for(int i=0;i<dsFile.length;i++){
-                String name=dsFile[i].getName();
-                dm.addElement(name);
+            for (File dsFile1 : dsFile) {
+                String name = dsFile1.getName();
+                for (String ext : supportedExtensions) {
+                    if (name.endsWith(ext)) {
+                        dm.addElement(name);
+                        break;
+                    }
+                }
             }
             this.lstClientFolder.setModel(dm);
             lstClientFolder.setSelectedIndex(0);
@@ -313,6 +322,7 @@ public class frmHienThi extends javax.swing.JInternalFrame {
         musicForm.setVisible(true);
         JDesktopPane desktopPane = (JDesktopPane) this.getParent();
         desktopPane.add(musicForm);
+        musicForm.toFront();
     }//GEN-LAST:event_btnPlayServerActionPerformed
 
 
